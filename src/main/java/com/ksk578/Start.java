@@ -19,7 +19,7 @@ public class Start {
         requestSubmission.presentingRequestScreen();
         context.close();
 
-        //сообщение о успешном завершении программы
+        //сообщение о успешном завершении  программы
         System.out.println ( "\nРабота программы завершена успешно." );
 
     }
