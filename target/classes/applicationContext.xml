@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:ConnectStend.properties"/>
+
+    <bean id = "connectBean" class = "com.ksk578.Connect">
+        <property name="connectTest" ref="connectTestBean"/>
+        <property name="connectDemo" ref="connectDemoBean"/>
+        <property name="connectRls" ref="connectRlsBean"/>
+    </bean>
+
+    <bean id = "connectTestBean" class = "com.ksk578.ConnectTest">
+        <constructor-arg value="${connectTest.url}"/>
+        <constructor-arg value="${connectTest.username}"/>
+        <constructor-arg value="${connectTest.password}"/>
+        <property name="requestStructure" ref="requestStructureBean"/>
+    </bean>
+
+    <bean id = "connectDemoBean" class = "com.ksk578.ConnectDemo">
+        <constructor-arg value="${connectDemo.url}"/>
+        <constructor-arg value="${connectDemo.username}"/>
+        <constructor-arg value="${connectDemo.password}"/>
+        <property name="requestStructure" ref="requestStructureBean"/>
+    </bean>
+
+    <bean id = "connectRlsBean" class = "com.ksk578.ConnectRls">
+        <constructor-arg value="${connectRls.url}"/>
+        <constructor-arg value="${connectRls.username}"/>
+        <constructor-arg value="${connectRls.password}"/>
+        <property name="requestStructure" ref="requestStructureBean"/>
+    </bean>
+
+    <bean id = "introducerBean" class = "com.ksk578.Introducer">
+        <property name="validatorArgumentGuid" ref="validatorArgumentGuidBean"/>
+        <property name="validatorArgumentIdDB" ref="validatorArgumentIdDBBean"/>
+    </bean>
+
+    <bean id = "requestStructureBean" class = "com.ksk578.RequestStructure">
+        <property name="intr" ref="introducerBean"/>
+    </bean>
+
+    <bean id = "requestSubmissionBean" class = "com.ksk578.RequestSubmission">
+        <property name="connect" ref="connectBean"/>
+        <property name="fieldsView" ref="fieldsViewBean"/>
+    </bean>
+
+    <bean id = "validatorArgumentGuidBean" class = "com.ksk578.ValidatorArgumentGuid">
+    </bean>
+
+    <bean id = "validatorArgumentIdDBBean" class = "com.ksk578.ValidatorArgumentIdDB">
+    </bean>
+
+    <bean id = "fieldsViewBean" class = "com.ksk578.FieldsView">
+    </bean>
+</beans>
