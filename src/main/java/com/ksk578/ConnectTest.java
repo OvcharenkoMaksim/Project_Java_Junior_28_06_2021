@@ -27,7 +27,7 @@ public class ConnectTest implements ConnectStenable {
         this.requestStructure = requestStructure;
     }
 
-    //проксируем вызов метода к родительскому классу, дополняя его требуемыми аргументами
+    //проксируем вызов метода к родительскому интерфейсу, дополняя его требуемыми аргументами
     public LinkedHashMap <Integer, Responseline> connectBdUfos () throws SQLException, IOException {
         LinkedHashMap <Integer,Responseline> mapResponce = new LinkedHashMap <> (ConnectStenable.super.connectBdUfos(url, username, password, requestStructure));
         return mapResponce;

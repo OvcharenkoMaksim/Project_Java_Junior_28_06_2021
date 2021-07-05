@@ -13,7 +13,7 @@ public interface ConnectStenable {
         throws SQLException, IOException {
             LinkedHashMap <Integer,Responseline> mapResponce = new LinkedHashMap <> ();
 
-            // загрузка драйвера и выполнение подключения к БД
+            // выполнение подключения к БД
             Connection con= DriverManager.getConnection (url, username, password);
             Statement stmt=con.createStatement ();
 
